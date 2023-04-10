@@ -1179,8 +1179,8 @@ contract SmartChefFactory is Ownable {
         uint256 _poolLimitPerUser,
         address _admin
     ) external onlyOwner {
-        require(_stakedToken.totalSupply() >= 0);
-        require(_rewardToken.totalSupply() >= 0);
+        require(_stakedToken.totalSupply() > 0);
+        require(_rewardToken.totalSupply() > 0);
         require(_stakedToken != _rewardToken, "Tokens must be be different");
 
         bytes memory bytecode = type(SmartChefInitializable).creationCode;
